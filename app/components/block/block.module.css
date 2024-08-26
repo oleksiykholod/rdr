@@ -1,0 +1,23 @@
+.main{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    background-color: rgb(241, 241, 241);
+    padding: 5%;
+}
+.items{
+    border: solid;
+    width: 300px;
+    min-width: 300px;
+    border-color: green;
+    background-color: aliceblue;
+    text-align: center;
+    border-radius: 20px;
+    margin: 20px;
+    padding: 10px;
+    transition: box-shadow 0.3s ease, transform 0.3s ease; /* Плавний перехід тіні та зміни розміру */
+}
+.items:hover {
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3); /* Тінь при наведенні */
+    cursor: pointer; /* Зміна курсора на руку */
+    transform: scale(1.1); /* Збільшення на 10% при наведенні */
+  }
