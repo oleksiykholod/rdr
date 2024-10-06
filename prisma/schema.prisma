@@ -25,6 +25,15 @@ model Account {
   @@unique([provider, providerAccountId])
   @@map("accounts")
 }
+model Question{
+  id           String   @id @default(cuid())
+  q            String
+  a            String[]
+  t            Int
+  p            String?
+  user         User?       @relation(fields: [userId], references: [id]) // Зворотне реляційне поле
+  userId       String?
+}
  
 model Session {
   id           String   @id @default(cuid())
@@ -45,6 +54,7 @@ model User {
   accounts      Account[]
   sessions      Session[]
   category      String @default("В")
+  falsea        Question[]
  
   @@map("users")
 }

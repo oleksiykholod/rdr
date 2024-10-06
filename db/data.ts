@@ -78,7 +78,9 @@ interface Data {
 }
 
 const jsonDirectory = path.join(process.cwd(), 'db');
-
+function getRandomInt(min: number, max: number): number {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
 // Функція для читання JSON файлу
 export async function getData(): Promise<Data> {
   const filePath = path.join(jsonDirectory, 'data.json');
@@ -89,12 +91,45 @@ export async function getData(): Promise<Data> {
 }
 
 // Функція для отримання всіх даних
+export async function getpdrdata() {
+  const data = await getData();
+  const pdrdata = [
+    ...data.one, ...data.two, ...data.three, ...data.four, ...data.five,
+        ...data.six, ...data.seven, ...data.eight_one, ...data.eight_two, ...data.nine,
+        ...data.ten, ...data.eleven, ...data.twelve, ...data.threeteen, ...data.fourteen,
+        ...data.fiveteen, ...data.sixteen_one, ...data.sixteen_two, ...data.seventeen, ...data.eighteen,
+        ...data.nineteen, ...data.twenty, ...data.twenty_one, ...data.twenty_two, ...data.twenty_three,
+        ...data.twenty_four, ...data.twenty_five, ...data.twenty_six, ...data.twenty_seven, ...data.twenty_eight,
+        ...data.twenty_nine, ...data.thirty, ...data.thirty_one, ...data.thirty_two, ...data.thirty_three,
+        ...data.thirty_four,
+  ]
+  return pdrdata
+}
+
+async function getsecuredata() {
+  const data = await getData();
+  const pdrdata = [
+    ...data.thirty_five, ...data.thirty_six, ...data.thirty_eight,
+    ...data.thirty_nine,
+  ]
+  return pdrdata
+}
+  async function getadddata() {
+    const data = await getData();
+    const pdrdata = [
+      ...data.fourty, ...data.fourty_one, ...data.fourty_three,
+      ...data.fourty_two,
+    ]
+    return pdrdata
+
+  }
+
+
+
+
 export async function getAllData() {
   const data = await getData();
-
-  return {
-    all_data_question: {
-      all: [
+  const all_list = [
         ...data.one, ...data.two, ...data.three, ...data.four, ...data.five,
         ...data.six, ...data.seven, ...data.eight_one, ...data.eight_two, ...data.nine,
         ...data.ten, ...data.eleven, ...data.twelve, ...data.threeteen, ...data.fourteen,
@@ -108,9 +143,8 @@ export async function getAllData() {
         ...data.fourty_nine, ...data.fivety, ...data.fivety_one, ...data.fivety_two, ...data.fivety_three,
         ...data.fivety_four, ...data.fivety_five, ...data.fivety_six, ...data.fivety_seven, ...data.fivety_eight,
         ...data.fivety_nine, ...data.sixty, ...data.sixty_one, ...data.sixty_two, ...data.sixty_three,
-      ],
-    },
-  };
+      ]
+      return data
 }
 
 export async function getcatA() {
@@ -152,4 +186,30 @@ export async function getcatB() {
       ],
     },
   };
+}
+export async function getPDRData() {
+  const data = await getData();
+
+  return {
+    all_data_question: {
+      all: [
+        ...data.one, ...data.two, ...data.three, ...data.four, ...data.five,
+        ...data.six, ...data.seven, ...data.eight_one, ...data.eight_two, ...data.nine,
+        ...data.ten, ...data.eleven, ...data.twelve, ...data.threeteen, ...data.fourteen,
+        ...data.fiveteen, ...data.sixteen_one, ...data.sixteen_two, ...data.seventeen, ...data.eighteen,
+        ...data.nineteen, ...data.twenty, ...data.twenty_one, ...data.twenty_two, ...data.twenty_three,
+        ...data.twenty_four, ...data.twenty_five, ...data.twenty_six, ...data.twenty_seven, ...data.twenty_eight,
+        ...data.twenty_nine, ...data.thirty, ...data.thirty_one, ...data.thirty_two, ...data.thirty_three,
+        ...data.thirty_four,
+      ],
+    },
+  };
+}
+export async function getSecureData() {
+  const data = await getData();
+  const date = [
+    ...data.thirty_five, ...data.thirty_six, ...data.thirty_seven, ...data.thirty_eight,
+    ...data.thirty_nine,
+  ]
+  return date
 }
